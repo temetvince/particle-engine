@@ -1,9 +1,9 @@
 import * as React from "react";
 import { ReactElement } from "react";
-import Example from "./jumbotron";
+import Particles from "./particles";
 
 const App: React.FunctionComponent = (): ReactElement => {
-   return <Example />;
+   return <Particles />;
 };
 
 export default App;

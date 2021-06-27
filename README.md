@@ -1,3 +1,3 @@
-# Typescript Starter
+# Particle Engine
 
-Starter project for TS, React, and Bootstrap.
+A particle engine written in Typescript.

@@ -1,6 +1,6 @@
 {
-   "name": "template-typescript-reactstrap",
-   "description": "A template for new Reacstrap Typescript projects.",
+   "name": "particle-engine",
+   "description": "A particle engine written in Typescript.",
    "author": "Emmett Casey",
    "keywords": [
       ""
