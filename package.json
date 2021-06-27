@@ -1,0 +1,46 @@
+{
+   "name": "template-typescript-reactstrap",
+   "description": "A template for new Reacstrap Typescript projects.",
+   "author": "Emmett Casey",
+   "keywords": [
+      ""
+   ],
+   "license": "Public Domain",
+   "version": "2.0.0",
+   "main": "src/js/index.tsx",
+   "scripts": {
+      "start": "npm run build && npm run test && npm run dev",
+      "build": "npm run typescript && parcel build src/html/index.html",
+      "test": "jest",
+      "test-watch": "jest --watch",
+      "dev": "parcel src/html/index.html --open && npm run test",
+      "typescript": "npm run lint && npm run format && tsc --noEmit",
+      "lint": "eslint src/**/*.{js,jsx,ts,tsx} --quiet --fix",
+      "format": "prettier --write *.{js,jsx,ts,tsx,json} src/**/*.{js,jsx,ts,tsx,json,html,css}",
+      "update-dependencies": "ncu -u"
+   },
+   "dependencies": {
+      "bootstrap": "latest",
+      "react": "latest",
+      "react-dom": "latest",
+      "reactstrap": "latest"
+   },
+   "devDependencies": {
+      "@types/jest": "latest",
+      "@types/react": "latest",
+      "@types/react-dom": "latest",
+      "@types/reactstrap": "latest",
+      "@typescript-eslint/eslint-plugin": "latest",
+      "@typescript-eslint/parser": "latest",
+      "eslint": "latest",
+      "eslint-config-prettier": "latest",
+      "eslint-plugin-react": "latest",
+      "jest": "latest",
+      "npm-check-updates": "latest",
+      "parcel-bundler": "latest",
+      "parcel-plugin-static-files-copy": "latest",
+      "prettier": "latest",
+      "ts-jest": "latest",
+      "typescript": "latest"
+   }
+}
