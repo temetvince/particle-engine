@@ -1,9 +1,9 @@
-import Motion from "./motion";
-import Particle from "./particle";
-import Populator from "./populator";
-import Vector from "./vector";
+import Motion from "../particle-engine/motion";
+import Particle from "../particle-engine/particle";
+import Populator from "../particle-engine/populator";
+import Vector from "../particle-engine/vector";
 
-const DefaultPopulator = (
+const PopulatorDefault = (
    numberOfParticles: number,
    canvas: HTMLCanvasElement
 ) => {
@@ -24,4 +24,4 @@ const DefaultPopulator = (
    return new Populator(numberOfParticles, generator);
 };
 
-export default DefaultPopulator;
+export default PopulatorDefault;

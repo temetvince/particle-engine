@@ -1,6 +1,6 @@
-import Engine from "./engine";
-import DefaultPainter from "./defaultPainter";
-import DefaultPopulator from "./defaultPopulator";
+import Engine from "../../particle-engine/engine";
+import PainterCanvas from "../painterCanvas";
+import PopulatorDefault from "../populatorDefault";
 import BoxRules from "./boxRules";
 
 const getBoxEngine = (
@@ -9,9 +9,9 @@ const getBoxEngine = (
    context: CanvasRenderingContext2D
 ) => {
    return new Engine(
-      DefaultPopulator(numberOfParticles, canvas),
+      PopulatorDefault(numberOfParticles, canvas),
       BoxRules(canvas),
-      DefaultPainter(canvas, context)
+      PainterCanvas(canvas, context)
    );
 };
 

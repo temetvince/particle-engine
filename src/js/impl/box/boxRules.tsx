@@ -1,8 +1,8 @@
-import Effect from "./effect";
-import Law from "./law";
-import Particle from "./particle";
-import Rule from "./rule";
-import Rules from "./rules";
+import Effect from "../../particle-engine/effect";
+import Law from "../../particle-engine/law";
+import Particle from "../../particle-engine/particle";
+import Rule from "../../particle-engine/rule";
+import Rules from "../../particle-engine/rules";
 
 const BoxRules = (canvas: HTMLCanvasElement) => {
    const getRule = (law: Law, effect: Effect) => {

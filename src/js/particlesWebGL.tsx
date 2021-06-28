@@ -4,7 +4,7 @@ import { ReactElement } from "react";
 
 import getBoxEngine from "./impl/box/boxEngine";
 
-const Particles: React.FC = (): ReactElement => {
+const ParticlesWebGL: React.FC = (): ReactElement => {
    const canvasReference = useRef(null);
 
    useEffect(() => {
@@ -12,7 +12,7 @@ const Particles: React.FC = (): ReactElement => {
       const REDRAW_SPEED = 1;
 
       const canvas = canvasReference.current;
-      const context = canvas.getContext("2d");
+      const context = canvas.getContext("webgl2");
 
       const resizeCanvas = () => {
          canvas.width = window.innerWidth;
@@ -33,4 +33,4 @@ const Particles: React.FC = (): ReactElement => {
    return <canvas ref={canvasReference} />;
 };
 
-export default Particles;
+export default ParticlesWebGL;

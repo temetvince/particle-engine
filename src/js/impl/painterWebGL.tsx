@@ -1,8 +1,8 @@
-import Painter from "./painter";
-import Painters from "./painters";
-import Particle from "./particle";
+import Painter from "../particle-engine/painter";
+import Painters from "../particle-engine/painters";
+import Particle from "../particle-engine/particle";
 
-const DefaultPainter = (
+const PainterWebGL = (
    canvas: HTMLCanvasElement,
    context: CanvasRenderingContext2D
 ) => {
@@ -37,4 +37,4 @@ const DefaultPainter = (
    return new Painters([new Painter(paintBackground, paintParticle)]);
 };
 
-export default DefaultPainter;
+export default PainterWebGL;
