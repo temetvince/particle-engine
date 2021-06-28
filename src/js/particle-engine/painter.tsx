@@ -1,11 +1,9 @@
 import Particle from "./particle";
 
-// PaintBackground is a zero arg function that renders the background image.
 interface PaintBackground {
    (): void;
 }
 
-// paintParticle SHALL NOT call particle.update().
 interface PaintParticle {
    (particle: Particle): void;
 }
@@ -19,19 +17,16 @@ class Painter {
       this._paintParticle = paintParticle;
    }
 
-   paint = (particles: Array<Particle>) => {
-      this.paintBackground();
-      this.paintParticles(particles);
+   clone = () => {
+      return new Painter(this._paintBackground, this._paintParticle);
    };
 
    paintBackground = () => {
       this._paintBackground();
    };
 
-   paintParticles = (particles: Array<Particle>) => {
-      particles.forEach((particle) => {
-         this._paintParticle(particle);
-      });
+   paintParticle = (particle: Particle) => {
+      this._paintParticle(particle);
    };
 }
 

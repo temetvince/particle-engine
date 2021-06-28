@@ -14,7 +14,10 @@ class Populator {
       this.generator = generator;
    }
 
-   // particles is an array of Particle
+   clone = () => {
+      return new Populator(this.numberOfParticles, this.generator);
+   };
+
    // if particles length is less than number of particles, new particles are added.
    populate = (particles: Array<Particle>) => {
       const shortage = this.numberOfParticles - particles.length;
@@ -22,6 +25,8 @@ class Populator {
       for (let i = 0; i < shortage; ++i) {
          particles.push(this.generator());
       }
+
+      return this;
    };
 }
 

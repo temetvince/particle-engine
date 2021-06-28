@@ -2,7 +2,7 @@ import * as React from "react";
 import { useRef, useEffect } from "react";
 import { ReactElement } from "react";
 
-import getBoxEngine from "./particle-engine/box";
+import getBoxEngine from "./particle-engine/boxEngine";
 
 const Particles: React.FC = (): ReactElement => {
    const canvasReference = useRef(null);
@@ -25,9 +25,7 @@ const Particles: React.FC = (): ReactElement => {
 
       document.body.appendChild(canvas);
 
-      //const engine = getFountainEngine(NUMBER_OF_PARTICLES, canvas, context);
       const engine = getBoxEngine(NUMBER_OF_PARTICLES, canvas, context);
-      //const engine = getGridEngine(NUMBER_OF_PARTICLES, canvas, context);
 
       resizeCanvas();
    });

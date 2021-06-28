@@ -1,24 +1,34 @@
-import Painter from "./painter";
-import Particle from "./particle";
+import Particles from "./particles";
 import Populator from "./populator";
-import Rule from "./rule";
+import Rules from "./rules";
+import Painters from "./painters";
 
-const Engine = class engine {
+class Engine {
    private populator: Populator;
-   private rules: Array<Rule>;
-   private painters: Array<Painter>;
-   private particles: Array<Particle>;
+   private rules: Rules;
+   private painters: Painters;
+   private particles: Particles;
 
    constructor(
       populator: Populator,
-      rules: Array<Rule>,
-      painters: Array<Painter>
+      rules: Rules,
+      painters: Painters,
+      particles: Particles = new Particles()
    ) {
       this.populator = populator;
       this.rules = rules;
       this.painters = painters;
-      this.particles = [];
+      if (particles) this.particles = particles;
    }
+
+   clone = () => {
+      return new Engine(
+         this.populator.clone(),
+         this.rules.clone(),
+         this.painters.clone(),
+         this.particles.clone()
+      );
+   };
 
    run = () => {
       this.populate();
@@ -27,38 +37,22 @@ const Engine = class engine {
    };
 
    populate = () => {
-      this.populator.populate(this.particles);
+      this.particles.populate(this.populator);
    };
 
    update = () => {
-      const particleIsDead = (particle: Particle) => {
-         return particle.getLife() < 0;
-      };
+      this.rules.applyTo(this.particles);
 
-      const removeParticle = (index: number) => {
-         return this.particles.splice(index, 1);
-      };
+      this.particles.update();
 
-      this.particles.forEach((particle, index) => {
-         this.rules.forEach((rule) => {
-            rule.applyTo(particle);
-         });
-
-         particle.update();
-
-         if (particleIsDead(particle)) {
-            removeParticle(index);
-         }
-      });
+      this.particles.prune();
    };
 
    paint = () => {
-      this.painters[0].paintBackground();
+      this.painters.paintBackground();
 
-      this.painters.forEach((painter) => {
-         painter.paintParticles(this.particles);
-      });
+      this.painters.paintParticles(this.particles);
    };
-};
+}
 
 export default Engine;

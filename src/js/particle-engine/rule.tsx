@@ -11,10 +11,16 @@ class Rule {
       this.effect = effect;
    }
 
+   clone() {
+      return new Rule(this.law, this.effect);
+   }
+
    applyTo = (particle: Particle) => {
       if (this.law(particle)) {
          this.effect(particle);
       }
+
+      return this;
    };
 }
 

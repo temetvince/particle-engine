@@ -1,15 +1,23 @@
 import Vector from "./vector";
 
 class Motion {
-   public position: Vector;
-   public velocity: Vector;
-   public acceleration: Vector;
+   private position: Vector;
+   private velocity: Vector;
+   private acceleration: Vector;
 
    constructor(position: Vector, velocity: Vector, acceleration: Vector) {
       this.position = position;
       this.velocity = velocity;
       this.acceleration = acceleration;
    }
+
+   clone = () => {
+      return new Motion(
+         this.getPosition(),
+         this.getVelocity(),
+         this.getAcceleration()
+      );
+   };
 
    getPosition = () => {
       return this.position;
@@ -26,6 +34,8 @@ class Motion {
    update = () => {
       this.velocity.shift(this.acceleration);
       this.position.shift(this.velocity);
+
+      return this;
    };
 }
 
