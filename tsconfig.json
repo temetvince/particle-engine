@@ -1,34 +1,27 @@
 {
-   "compilerOptions": {
-      "module": "CommonJS",
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
 
-      // Highest standard supported by most modern browsers
-      "target": "ES6",
+    // Generate sourcemap files for debugging
+    "sourceMap": true,
 
-      "jsx": "preserve",
-
-      // Project specific directories
-      "rootDir": "src",
-      "outDir": "dist",
-
-      // Generate sourcemap files for debugging
-      "sourceMap": true,
-
-      // TypeScript doesn't support importing JSON modules, but this is common practice in node projects.
-      "resolveJsonModule": true,
-
-      // Type definitions
-      "lib": ["ES6", "dom"],
-
-      // Everything "Recommended: True" by https://www.typescriptlang.org/tsconfig
-      "strict": true,
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "skipLibCheck": true,
-
-      // Necessary for passing null React props
-      "strictNullChecks": false
-   },
-   "include": ["src/**/*.ts*"],
-   "exclude": ["node_modules", "src/**/*.spec.ts*"]
+    // Necessary for passing null React props
+    "strictNullChecks": false
+  },
+  "include": ["src/**/*.ts*"],
+  "exclude": ["node_modules", "src/**/*.spec.ts*"]
 }

@@ -29,10 +29,15 @@ module.exports = {
    ],
    overrides: [
       {
-         files: ["*.spec.ts*"],
+         files: ["*.spec.ts*", "*.test.ts*"],
          rules: {
             "@typescript-eslint/no-empty-function": "off",
          },
       },
    ],
+   settings: {
+      react: {
+         version: "detect",
+      },
+   },
 };
