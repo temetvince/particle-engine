@@ -8,7 +8,7 @@ const Particles = () => {
 
   useEffect(() => {
     const NUMBER_OF_PARTICLES = 50;
-    const REDRAW_SPEED = 10;
+    const REDRAW_SPEED = 5;
 
     const canvas = canvasReference.current;
     if (!canvas) return;
