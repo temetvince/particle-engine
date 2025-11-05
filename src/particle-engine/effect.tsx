@@ -1,7 +1,7 @@
-import Particle from "./particle";
+import Particle from './particle';
 
 interface Effect {
-   (particle: Particle): void;
+  (particle: Particle): void;
 }
 
 export default Effect;

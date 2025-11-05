@@ -1,63 +1,77 @@
-import Motion from "./motion";
+import Color from './color';
+import Motion from './motion';
 
 class Particle {
-   private size: number;
-   private life: number;
-   private maxLife: number;
-   private motion: Motion;
+  private size: number;
+  private life: number;
+  private maxLife: number;
+  private motion: Motion;
+  private color: Color;
 
-   constructor(
-      size: number,
-      life: number,
-      motion: Motion,
-      maxLife: number = null
-   ) {
-      this.size = size;
-      this.life = life;
-      this.motion = motion;
+  constructor(
+    size: number,
+    life: number,
+    motion: Motion,
+    color: Color,
+    maxLife?: number,
+  ) {
+    this.size = size;
+    this.life = life;
+    this.motion = motion;
+    this.color = color;
 
-      if (!maxLife) this.maxLife = life;
-      else this.maxLife = maxLife;
-   }
+    if (maxLife === undefined) this.maxLife = life;
+    else this.maxLife = maxLife;
+  }
 
-   clone = () => {
-      return new Particle(this.size, this.life, this.getMotion());
-   };
+  clone = () => {
+    return new Particle(
+      this.size,
+      this.life,
+      this.getMotion(),
+      this.color,
+      this.maxLife,
+    );
+  };
 
-   getSize = () => {
-      return this.size;
-   };
+  getColor = () => {
+    return this.color;
+  };
 
-   getLife = () => {
-      return this.life;
-   };
+  getSize = () => {
+    return this.size;
+  };
 
-   setLife = (life: number) => {
-      this.life = life;
+  getLife = () => {
+    return this.life;
+  };
 
-      return this;
-   };
+  setLife = (life: number) => {
+    this.life = life;
 
-   getMaxLife = () => {
-      return this.maxLife;
-   };
+    return this;
+  };
 
-   getMotion = () => {
-      return this.motion.clone();
-   };
+  getMaxLife = () => {
+    return this.maxLife;
+  };
 
-   setMotion = (motion: Motion) => {
-      this.motion = motion;
+  getMotion = () => {
+    return this.motion.clone();
+  };
 
-      return this;
-   };
+  setMotion = (motion: Motion) => {
+    this.motion = motion;
 
-   update = () => {
-      this.motion.update();
-      this.life--;
+    return this;
+  };
 
-      return this;
-   };
+  update = () => {
+    this.motion.update();
+    this.life--;
+
+    return this;
+  };
 }
 
 export default Particle;

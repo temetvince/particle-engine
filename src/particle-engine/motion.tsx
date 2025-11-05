@@ -1,42 +1,42 @@
-import Vector from "./vector";
+import Vector from './vector';
 
 class Motion {
-   private position: Vector;
-   private velocity: Vector;
-   private acceleration: Vector;
+  private position: Vector;
+  private velocity: Vector;
+  private acceleration: Vector;
 
-   constructor(position: Vector, velocity: Vector, acceleration: Vector) {
-      this.position = position;
-      this.velocity = velocity;
-      this.acceleration = acceleration;
-   }
+  constructor(position: Vector, velocity: Vector, acceleration: Vector) {
+    this.position = position;
+    this.velocity = velocity;
+    this.acceleration = acceleration;
+  }
 
-   clone = () => {
-      return new Motion(
-         this.getPosition(),
-         this.getVelocity(),
-         this.getAcceleration()
-      );
-   };
+  clone = () => {
+    return new Motion(
+      this.getPosition(),
+      this.getVelocity(),
+      this.getAcceleration(),
+    );
+  };
 
-   getPosition = () => {
-      return this.position;
-   };
+  getPosition = () => {
+    return this.position;
+  };
 
-   getVelocity = () => {
-      return this.velocity;
-   };
+  getVelocity = () => {
+    return this.velocity;
+  };
 
-   getAcceleration = () => {
-      return this.acceleration;
-   };
+  getAcceleration = () => {
+    return this.acceleration;
+  };
 
-   update = () => {
-      this.velocity.shift(this.acceleration);
-      this.position.shift(this.velocity);
+  update = () => {
+    this.velocity.shift(this.acceleration);
+    this.position.shift(this.velocity);
 
-      return this;
-   };
+    return this;
+  };
 }
 
 export default Motion;

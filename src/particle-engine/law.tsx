@@ -1,7 +1,7 @@
-import Particle from "./particle";
+import Particle from './particle';
 
 interface Law {
-   (particle: Particle): boolean;
+  (particle: Particle): boolean;
 }
 
 export default Law;

@@ -8,10 +8,6 @@ Run in the browser with:
 ```
 $ npm start
 ```
-Or run using Electron with:
-```
-$ npm run dev
-```
 
 ## Sources
 
